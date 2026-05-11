@@ -92,6 +92,14 @@ static inline Value numToValue(double num) {
 }
 //< num-to-value
 
+static inline Value shortStringVal(const char* chars, int length) {
+  Value value;
+  value.type = VAL_SHORT_STRING;
+  value.as.shortString.length = length;
+  memcpy(value.as.shortString.chars, chars, length);
+  return value;
+}
+
 #else
 
 typedef struct {
